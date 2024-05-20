@@ -1,0 +1,27 @@
+ID_EMPLEADO,TX_NIF,TX_NOMBRE,TX_APELLIDO1,TX_APELLIDO2,F_NACIMIENTO,N_TELEFONO1,N_TELEFONO2,TX_EMAIL,F_ALTA,F_BAJA,CX_EDOCIVIL,B_SERVMILITAR
+1,12483401J,Silva,Bril,Martinez,1986-05-06,148580291,994812866,sgault0@about.me,2003-05-01,2004-05-18,C,N
+2,25629135M,Javier,De Ambrosi,Perez,1966-05-13,606 783 6801,779 466 4603,jkoeppe0@shutterfly.com,2018-06-15,2020-05-18,C,S
+3,15905914B,Florella,Francioli,Whittall,1965-04-13,210652804,901926485,fwhittall1@feedburner.com,2015-06-05,,C,N
+4,94138508Z,Merv,Wessing,Pietrowski,2003-09-19,851 118 1113,492 406 8592,mpietrowski2@clickbank.net,2006-05-29,,S,N
+5,56254925F,Cybill,Fincham,Pinchbeck,1987-06-15,242 929 8098,542 514 1759,cpinchbeck3@samsung.com,2002-11-23,,S,N
+6,82212811R,Roana,Mandal,Junkison,1990-01-07,437 905 4289,988 388 2524,rjunkison4@uol.com.br,2000-10-28,,C,S
+7,43443843V,Nicol,Conwell,Dayly,1999-06-16,637535286,137980264,ndayly5@cbsnews.com,2016-09-22,,C,N
+8,72009960L,Archibold,Valeri,Capper,1960-12-22,630 533 9554,745 813 0411,acapper6@tinypic.com,2005-04-16,2008-05-14,S,N
+9,26954369W,Shaun,Jowling,Annes,1965-11-13,732 475 4359,235 773 1332,sannes7@nifty.com,2018-11-27,,C,N
+10,71808140R,Paco,Bolsover,Greenly,1978-03-24,159114954,404843395,ggreenly8@xinhuanet.com,2014-04-16,,S,N
+11,23777060M,Arthur,Jacques,Pinckney,2001-04-08,352 508 2969,323 666 4913,apinckney9@lycos.com,2015-12-19,,C,N
+12,35882397M,Jocko,McGonigal,Arrighini,1972-02-10,635310496,865914954,jarrighinia@ow.ly,2022-12-09,,C,S
+13,81762114N,Ted,Maior,Battlestone,1984-09-13,218 299 6201,927 966 1840,tbattlestoneb@unicef.org,2023-12-10,,S,N
+14,69096590J,Cirstoforo,Rocco,Clemson,1968-06-24,985 166 7530,648 676 5230,cclemsonc@yolasite.com,2019-02-04,,S,S
+15,90191831E,Fletcher,Morville,Marples,2002-02-11,135 968 3515,826 561 2181,fmarplesd@vistaprint.com,2003-12-30,2014-05-16,S,S
+16,26083920B,Dalston,Rustadge,Dandison,1993-06-29,226453469,286194257,ddandisone@mail.ru,2006-06-12,,C,N
+17,62138826W,Regan,Crenage,Seaking,1968-10-21,814 771 3725,928 882 1069,rseakingf@booking.com,2013-09-20,,S,S
+18,77338337D,Richie,Jeandot,Lagden,1991-04-30,590 834 7096,503 372 2148,rlagdeng@wix.com,2006-10-30,,S,S
+19,58342925K,Hannah,Slessar,Brankley,1984-03-13,437 758 5453,890 394 7209,hbrankleyh@free.fr,2007-06-15,2015-05-18,S,S
+20,53363720V,Gustaf,Dethloff,Perrygo,1994-05-06,533 300 1719,796 540 8367,gperrygoi@ox.ac.uk,2012-01-20,,S,S
+21,47300284W,Aundrea,Marco,Furminger,1982-02-03,695 522 0506,845 949 0275,afurmingerj@businessinsider.com,2000-05-17,2010-06-17,S,N
+22,52660194S,Alexis,Melling,Schneidar,1984-10-02,966 610 5688,152 133 6125,aschneidark@naver.com,2004-07-28,,S,S
+23,57043635R,Tabb,Luckcock,Lougheid,1997-08-08,486 783 9055,518 301 4180,tlougheidl@apache.org,2005-04-17,2008-06-10,S,N
+24,68489463V,Tallou,Lucio,Meldrum,1968-10-26,524 418 8014,971 845 2564,tmeldrumm@icio.us,2023-01-05,,C,N
+25,94891527J,Palmer,Cosstick,Sawtell,1992-03-25,444 322 0866,407 539 9533,psawtelln@ow.ly,2000-04-13,2022-05-20,S,S
+27,04974885Q,Jennifer,Madrigal,Perez,1992-09-19,666666666,666666666,madrigal@gmail.com,2024-05-15,,C,N

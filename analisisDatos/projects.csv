@@ -1,0 +1,7 @@
+ID_PROYECTO,F_INICIO,F_FIN,F_BAJA,TX_LUGAR,TX_OBSERVACIONES,TX_DESCRIPCION
+102,2024-01-01,2026-12-31,,Cuenca,"Este proyecto incluye el desarrollo de varios submódulos importantes, y la colaboración con otros equipos internacionales.",Nuevo sistema de gestión empresarial para Netflix
+152,2023-03-13,2024-12-30,,Cuenca,"El proyecto requiere la migración de datos y servicios a AWS, garantizando mínima interrupción del servicio.",Implementación de infraestructura en la nube para Telefónica
+153,2022-05-01,2023-12-31,,Madrid,"Incluye la integración con sistemas de pago y logística existentes, y el soporte para múltiples idiomas.",Desarrollo de plataforma de e-commerce para El Corte Inglés
+154,2023-07-01,2024-06-30,,Cuenca,El proyecto se enfocará en la mejora de la interfaz de usuario y la eficiencia del sistema.,Actualización del sistema de gestión hospitalaria para el Hospital La Paz
+155,2024-02-01,2025-02-28,,Cuenca,La aplicación permitirá a los usuarios gestionar sus cuentas y realizar transacciones de manera segura y eficiente.,Desarrollo de aplicación móvil para Banco Santander
+156,2023-10-01,2024-12-31,,Madrid,El proyecto incluye la integración del CRM con los sistemas de gestión de clientes existentes y capacitación para el personal.,Implementación de CRM para Iberdrola
