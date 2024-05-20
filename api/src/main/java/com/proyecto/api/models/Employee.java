@@ -18,7 +18,7 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idEmployee;
 
-    @Column(name = "TX_NIF", length = 9)
+    @Column(name = "TX_NIF", length = 9, unique = true)
     @Size(min = 9, max = 9, message = "El NIF debe tener exactamente 9 caracteres")
     private String nif;
 
@@ -66,18 +66,14 @@ public class Employee {
 
     @Column(name = "CX_EDOCIVIL", nullable = false, length = 1)
     @NotNull(message = "El estado civil es obligatorio")
-    private Character maritalStatus;
+    @Pattern(regexp = "[S|C]", message = "El estado civil debe ser 'S' (soltero), 'C' (casado)")
+    private String maritalStatus;
 
     @Column(name = "B_SERVMILITAR", nullable = false, length = 1)
     @NotNull(message = "La información del servicio militar es obligatoria")
-    private Character militaryService;
-  /*
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "PR_EMPLEADOS_PROYECTO",
-            joinColumns=@JoinColumn(name="ID_EMPLEADO"),
-            inverseJoinColumns=@JoinColumn(name="ID_PROYECTO"))
-    private Set<Project> projects = new HashSet<>();
-*/
+    @Pattern(regexp = "[S|N]", message = "El servicio militar debe ser 'S' (SI), 'N' (NO)")
+    private String militaryService;
+
     /**Establece una relación con la entidad EmployeeProject
      * mappedBy una las tablas Employee y EmployeeProject a través de la propiedad employee
      * cascade = CascadeType.ALL  indica que todas las operaciones de persistencia (persist, merge, remove, refresh, detach) realizadas en la entidad Employee se deben propagar a las entidades EmployeeProject
@@ -94,7 +90,7 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(String nif, String name, String surname1, String surname2, LocalDate birthdate, String phone1, String phone2, String email, LocalDate hireDate, LocalDate terminationDate, Character maritalStatus, Character militaryService) {
+    public Employee(String nif, String name, String surname1, String surname2, LocalDate birthdate, String phone1, String phone2, String email, LocalDate hireDate, LocalDate terminationDate, String maritalStatus, String militaryService) {
         this.nif = nif;
         this.name = name;
         this.surname1 = surname1;
@@ -197,19 +193,19 @@ public class Employee {
         this.terminationDate = terminationDate;
     }
 
-    public Character getMaritalStatus() {
+    public String getMaritalStatus() {
         return maritalStatus;
     }
 
-    public void setMaritalStatus(Character maritalStatus) {
+    public void setMaritalStatus(String maritalStatus) {
         this.maritalStatus = maritalStatus;
     }
 
-    public Character getMilitaryService() {
+    public String getMilitaryService() {
         return militaryService;
     }
 
-    public void setMilitaryService(Character militaryService) {
+    public void setMilitaryService(String militaryService) {
         this.militaryService = militaryService;
     }
 

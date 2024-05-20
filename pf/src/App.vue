@@ -21,7 +21,7 @@
     <v-main>
       <router-view></router-view>
     </v-main>
-    <v-footer app>
+    <v-footer height="auto"  absolute app>
       <v-container>
         <v-row justify="center">
           <v-col cols="12" class="text-center">

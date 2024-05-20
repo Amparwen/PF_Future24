@@ -117,8 +117,8 @@
                       </v-card-text>
                       <v-card-actions>
                         <v-spacer></v-spacer>
-                        <v-btn color="blue darken-1" text @click="close">Cancelar</v-btn>
                         <v-btn color="blue darken-1" text @click="save">Guardar</v-btn>
+                        <v-btn color="error" text @click="close">Cancelar</v-btn>
                       </v-card-actions>
                     </v-card>
                   </v-dialog>
@@ -129,8 +129,8 @@
                       <v-card-title class="text-h5 d-flex justify-center">¿Quiere dar de baja a este empleado?</v-card-title>
                       <v-card-actions>
                         <v-spacer></v-spacer>
-                        <v-btn color="blue darken-1" text @click="closeDelete">Cancelar</v-btn>
                         <v-btn color="blue darken-1" text @click="deleteItemConfirm">Confirmar</v-btn>
+                        <v-btn color="error" text @click="closeDelete">Cancelar</v-btn>
                         <v-spacer></v-spacer>
                       </v-card-actions>
                     </v-card>
