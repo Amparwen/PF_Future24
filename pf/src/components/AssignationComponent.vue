@@ -165,7 +165,7 @@ export default {
 <style scoped>
 .v-container {
     height: 100vh;
-    /* Ensure the container takes the full height of the viewport */
+    /* Coge el alto de la pantalla */
 }
 
 .dense-table .v-data-table__wrapper tr {

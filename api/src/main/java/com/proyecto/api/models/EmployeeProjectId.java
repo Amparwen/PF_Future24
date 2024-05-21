@@ -15,33 +15,56 @@ public class EmployeeProjectId implements Serializable {
     private Integer employeeId;
     private Integer projectId;
 
-/**
- * Constructores
- */
+    /**
+     * Constructor por defecto.
+     */
     public EmployeeProjectId() {
     }
-
+    /**
+     * Constructor con parámetros.
+     *
+     * @param employeeId el ID del empleado.
+     * @param projectId  el ID del proyecto.
+     */
     public EmployeeProjectId(Integer employeeId, Integer projectId) {
         this.employeeId = employeeId;
         this.projectId = projectId;
     }
 
-    /**
-     * GETTERS AND SETTERS
-     */
+    // Getters y Setters
 
+    /**
+     * Obtiene el ID del empleado.
+     *
+     * @return el ID del empleado.
+     */
     public Integer getEmployeeId() {
         return employeeId;
     }
 
+    /**
+     * Establece el ID del empleado.
+     *
+     * @param employeeId el nuevo ID del empleado.
+     */
     public void setEmployeeId(Integer employeeId) {
         this.employeeId = employeeId;
     }
 
+    /**
+     * Obtiene el ID del proyecto.
+     *
+     * @return el ID del proyecto.
+     */
     public Integer getProjectId() {
         return projectId;
     }
 
+    /**
+     * Establece el ID del proyecto.
+     *
+     * @param projectId el nuevo ID del proyecto.
+     */
     public void setProjectId(Integer projectId) {
         this.projectId = projectId;
     }

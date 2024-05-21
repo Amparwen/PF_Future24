@@ -2,12 +2,10 @@ package com.proyecto.api.exception;
 
 public class ErrorEmployeeAssignedProjects extends RuntimeException {
     /**
-     * Constructs a new runtime exception with the specified detail message.
-     * The cause is not initialized, and may subsequently be initialized by a
-     * call to {@link #initCause}.
+     * Construye una nueva excepción en tiempo de ejecución con el mensaje de detalle especificado.
      *
-     * @param message the detail message. The detail message is saved for
-     *                later retrieval by the {@link #getMessage()} method.
+     * @param message el mensaje de detalle. El mensaje de detalle se guarda para
+     *                su posterior recuperación mediante el método getMessage().
      */
     public ErrorEmployeeAssignedProjects(String message) {
         super(message);

@@ -36,7 +36,7 @@ public class DatabaseConfig {
     }
 
     /**
-     * Declaración del EntityManagerFactory JPA para administras las entidades JPA. Configura las propiedades
+     * Declaración del EntityManagerFactory JPA para administrar las entidades JPA. Configura las propiedades
      * Hibernate, como el dialecto, si se deben mostras las consultas SQL, etc.
      */
     @Bean

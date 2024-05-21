@@ -16,6 +16,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/assignment")
+/**
+ * Controlador para la asignación de empleados a proyectos
+ */
 public class EmployeeProjectController {
     @Autowired
     private EmployeeProjectService employeeProjectService;
@@ -26,14 +29,30 @@ public class EmployeeProjectController {
     @Autowired
     private ProjectService projectService;
 
+    /**
+     * Recupera todas las asignaciones
+     * @return una lista con los ids de los proyectos y los ids de los empleados que tienen asignados.
+     */
     @GetMapping
     public List<EmployeeProject> getAllEmployeeProjects() {
         return employeeProjectService.getAllEmployeeProjects();
     }
+
+    /**
+     * Recupera los ids de los empleados que están asociados a ese proyecto
+     * @param projectId id del proyecto
+     * @return lista de ids de empleados asociados con ese proyecto
+     */
     @GetMapping("{projectId}")
     public List<Integer> getEmployeeIdsByProjectId(@PathVariable Integer projectId) {
         return employeeProjectService.getEmployeeIdsByProjectId(projectId);
     }
+
+    /**
+     * Crear una nueva asignación
+     * @param employeeProject objeto con el id del proyecto y el id del empleado
+     * @return
+     */
     @PostMapping("/new")
     public EmployeeProject createEmployeeProject(@RequestBody EmployeeProject employeeProject) {
 
@@ -44,6 +63,12 @@ public class EmployeeProjectController {
 
     }
 
+    /**
+     *  Actualiza los proyectos de los empleados según la información proporcionada en el objeto EmployeeProjectDTO.
+     *  Elimina y agrega empleados a un proyecto específico.
+     * @param projectUpdate projectUpdate el DTO que contiene la información del proyecto y las listas de empleados a eliminar y agregar.
+     * @return un ResponseEntity con un mensaje de éxito y el estado HTTP OK.
+     */
     @PostMapping(value = "/update", consumes = "application/json", produces = "application/json")
     public ResponseEntity<String> updatedEmployeeProject(@RequestBody EmployeeProjectDTO projectUpdate) {
 

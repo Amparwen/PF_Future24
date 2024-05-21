@@ -3,7 +3,6 @@ package com.proyecto.api.exception;
  * Excepción personalizada para representar situaciones donde un recurso no es encontrado.
  * Extiende de RuntimeException, lo que permite ser lanzada sin necesidad de declararla en los métodos.
  *
- * @author ResourceNotFoundException
  */
 public class ResourceNotFoundException extends RuntimeException{
     /**

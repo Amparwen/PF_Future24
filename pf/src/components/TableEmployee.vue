@@ -447,7 +447,7 @@ export default {
         console.error('Error saving item:', error);
         Swal.fire({
           icon: "error",
-          title: "Se ha producido un error",
+          title: "Se ha producido un error, por favor compruebe que los datos son correctos",
           showConfirmButton: false,
           timer: 1500
         });
