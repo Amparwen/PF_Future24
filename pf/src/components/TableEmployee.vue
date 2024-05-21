@@ -65,7 +65,7 @@
                                   <template v-slot:activator="{ on, attrs }">
                                     <v-text-field v-model="editedItem.birthdate" label="Fecha Nacimiento"
                                       prepend-icon="mdi-calendar" readonly v-bind="attrs" v-on="on"
-                                      :rules="[rules.required]"></v-text-field>
+                                      :rules="[rules.required, rules.validAge]"></v-text-field>
                                   </template>
                                   <v-date-picker v-model="editedItem.birthdate" no-title scrollable first-day-of-week="1"
                                     locale="es" @input="menuFN = false"></v-date-picker>
@@ -209,7 +209,23 @@ export default {
       required: value => !!value || 'Requerido.',
       nif: value => /^[0-9]{8}[A-Z]$/.test(value) || 'NIF inválido.',
       phone: value => /^[0-9]{9}$/.test(value) || 'Teléfono inválido.',
-      email: value => /.+@.+\..+/.test(value) || 'Email inválido.'
+      email: value => /.+@.+\..+/.test(value) || 'Email inválido.',  
+      validAge: (birthdate) => {
+          if (!birthdate) return true; // No validar si no hay fecha de nacimiento
+          
+              const today = new Date();
+              const birthDate = new Date(birthdate);
+              const age = today.getFullYear() - birthDate.getFullYear();
+              const monthDifference = today.getMonth() - birthDate.getMonth();
+              const dayDifference = today.getDate() - birthDate.getDate();
+
+              // Ajusta la edad si la fecha de nacimiento aún no ha pasado este año
+              if (monthDifference < 0 || (monthDifference === 0 && dayDifference < 0)) {
+                age--;
+              }
+
+              return (age >= 18 && age <= 67) || 'La edad debe estar entre 18 y 67 años.';
+       }
     },
     items: [],// Lista de empleados obtenida desde la API
     editedIndex: -1, // Índice del empleado que se está editando

@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.List;
 /**
  * ProjectService proporciona métodos para gestionar los proyectos.
@@ -75,10 +76,13 @@ public class ProjectService {
      * @throws SaveException si ocurre un error al guardar el proyecto.
      */
     public Project saveProject(Project newProject){
-        if(newProject==null){
-            throw new InvalidDataException("El proyecto no puede ser nulo");
-        }
         try {
+            if(newProject==null){
+                throw new InvalidDataException("El proyecto no puede ser nulo");
+            }
+            if(!dateValid(newProject.getStartDate(),newProject.getEndDate())){
+                throw new InvalidDataException("La fecha de inicio debe ser anterior a la de fin");
+            }
             return projectRepository.save(newProject);
         } catch (Exception e) {
             throw new SaveException("Error al guardar el proyecto: " + e.getMessage());
@@ -95,15 +99,20 @@ public class ProjectService {
      * @throws SaveException si ocurre un error al actualizar el proyecto.
      */
     public Project updateDataProject(Integer id, Project project){
+
         Project existingProject=getProjectById(id);
         if(existingProject !=null){
-            existingProject.setDescription(project.getDescription());
-            existingProject.setStartDate(project.getStartDate());
-            existingProject.setEndDate(project.getEndDate());
-            existingProject.setLocation(project.getLocation());
-            existingProject.setObservations(project.getObservations());
-
             try {
+                existingProject.setDescription(project.getDescription());
+                existingProject.setLocation(project.getLocation());
+                existingProject.setObservations(project.getObservations());
+
+                if (dateValid(project.getStartDate(),project.getEndDate())){
+                    existingProject.setStartDate(project.getStartDate());
+                    existingProject.setEndDate(project.getEndDate());
+                }else{
+                    throw new InvalidDataException("La fecha de inicio debe ser anterior a la de fin");
+                }
                 return projectRepository.save(existingProject);
             } catch (Exception e) {
                 throw new SaveException("Error al actualizar el proyecto: " + e.getMessage());
@@ -136,5 +145,12 @@ public class ProjectService {
         } catch (Exception e) {
             throw new SaveException("Error al actualizar el proyecto: " + e.getMessage());
         }
+    }
+
+    public boolean dateValid(LocalDate startDate, LocalDate endDate){
+        if (startDate==null || endDate==null){
+            return  false;
+        }
+        return startDate.isBefore(endDate);
     }
 }

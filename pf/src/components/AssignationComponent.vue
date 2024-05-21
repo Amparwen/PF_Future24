@@ -1,6 +1,6 @@
 <template>
     <v-container fluid>
-        <!-- Row for project selection -->
+        <!-- Fila para la selección del proyecto -->
         <v-row class="d-flex justify-center" >
             <v-col cols="12" sm="10" md="8">
                 <v-card>
@@ -21,7 +21,7 @@
             </v-col>
         </v-row>
 
-        <!-- Row for employee table -->
+        <!-- Fila para la tabla de empleados -->
         <v-row class="d-flex justify-center" style="margin-top: 20px;">
             <v-col cols="12" sm="10" md="8">
                 <v-card>
@@ -56,10 +56,10 @@ export default {
     data() {
         return {
             search: '',
-            projects: [],  // List of projects
-            employees: [], // List of employees
-            selectedEmployeeIds: [], // IDs of assigned employees
-            selectedProjectId: '', // ID of the selected project
+            projects: [],  // Lista de proyectos
+            employees: [], // Lista de empleados
+            selectedEmployeeIds: [], // IDs de empleados asignados
+            selectedProjectId: '', // ID del proyecto seleccionado
             headers: [
                 { text: 'ID', value: 'idEmployee' },
                 { text: 'Nombre', value: 'name' },
@@ -70,7 +70,7 @@ export default {
     },
 
     methods: {
-        // Fetch active projects from the server
+        // Petición para obtener los proyectos activos del servidor
         async getProyects() {
             try {
                 const response = await axios.get('http://localhost:8080/project/active');
@@ -83,19 +83,19 @@ export default {
             }
         },
 
-        // Fetch the IDs of employees assigned to the selected project
+        // Petición para obtener los IDs de los empleados asignados al proyecto seleccionado
         async onProjectSelect(selectedId) {
             try {
                 this.selectedProjectId = selectedId;
                 const response = await axios.get(`http://localhost:8080/assignment/${selectedId}`);
                 this.selectedEmployeeIds = response.data;
-                await this.getEmployees(); // Load employees after getting the selected project IDs
+                await this.getEmployees(); // Cargar empleados después de obtener los IDs del proyecto seleccionado
             } catch (error) {
                 console.error('Error fetching selected project employee IDs:', error);
             }
         },
 
-        // Fetch active employees from the server
+        // Petición para obtener empleados activos del servidor
         async getEmployees() {
             try {
                 const response = await axios.get('http://localhost:8080/employee/active');
@@ -103,28 +103,28 @@ export default {
                     idEmployee: employee.idEmployee,
                     name: employee.name,
                     fullName: `${employee.surname1} ${employee.surname2}`,
-                    assigned: this.isEmployeeSelected(employee.idEmployee) // Set assigned status
+                    assigned: this.isEmployeeSelected(employee.idEmployee) // Establecer estado de asignación
                 }));
             } catch (error) {
                 console.error('Error fetching employees:', error);
             }
         },
 
-        // Check if an employee is assigned to the selected project
+        // Comprueba si un empleado está asignado al proyecto seleccionado
         isEmployeeSelected(idEmployee) {
             return this.selectedEmployeeIds.includes(idEmployee);
         },
 
-        // Handle changes and send the update request to the server
+         // Maneja los cambios y envia la solicitud de actualización al servidor
         async acceptChanges() {
             const selectedIds = this.employees
                 .filter(employee => employee.assigned)
                 .map(employee => employee.idEmployee);
 
-            const employeeRemove = this.selectedEmployeeIds.filter(id => !selectedIds.includes(id));
-            const employeeAdd = selectedIds.filter(id => !this.selectedEmployeeIds.includes(id));
+            const employeeRemove = this.selectedEmployeeIds.filter(id => !selectedIds.includes(id));//recogemos los ids de los empleados que ya no están asignados al proyecto
+            const employeeAdd = selectedIds.filter(id => !this.selectedEmployeeIds.includes(id)); //recogemos los ids de los empleados que se han asignado al proyecto
 
-            const updateData = {
+            const updateData = { //construimos el objeto con los datos necesarios para la petición
                 idProject: this.selectedProjectId,
                 idsEmployeeRemove: employeeRemove,
                 idsEmployeeAdd: employeeAdd
@@ -143,7 +143,7 @@ export default {
                         timer: 1500
                     });
                 }
-                await this.onProjectSelect(this.selectedProjectId); // Refresh data after update
+                await this.onProjectSelect(this.selectedProjectId); // Actualizar datos después de la actualización
             } catch (error) {
                 console.error('Error updating assignments:', error);
                 Swal.fire({
@@ -166,16 +166,6 @@ export default {
 .v-container {
     height: 100vh;
     /* Coge el alto de la pantalla */
-}
-
-.dense-table .v-data-table__wrapper tr {
-    height: 30px;
-    /* Adjust row height as needed */
-}
-
-.dense-table .v-data-table__wrapper td {
-    padding-top: 0px;
-    padding-bottom: 0px;
 }
 </style>
 

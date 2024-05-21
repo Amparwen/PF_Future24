@@ -94,13 +94,13 @@ public class EmployeeService {
      * @throws SaveException si ocurre un error al guardar el empleado.
      */
     public Employee saveEmployee(Employee newEmployee) {
-        if(newEmployee==null){
-            throw new InvalidDataException("El empleado no puede ser nulo");
-        }
-        if (!ageValid(newEmployee.getBirthdate())) {
-            throw new InvalidDataException("El empleado debe tener entre 18 y 67 años");
-        }
         try {
+            if(newEmployee==null){
+                throw new InvalidDataException("El empleado no puede ser nulo");
+            }
+            if (!ageValid(newEmployee.getBirthdate())) {
+                throw new InvalidDataException("El empleado debe tener entre 18 y 67 años");
+            }
 
             return employeeRepository.save(newEmployee);
         } catch (Exception e) {
@@ -120,7 +120,9 @@ public class EmployeeService {
  */
     public Employee updateDataEmployee(Integer id, Employee employee){
        Employee existingEmployee=getEmployeeById(id);
+
        if(existingEmployee !=null){
+           try {
               existingEmployee.setName(employee.getName());
                existingEmployee.setNif(employee.getNif());
                existingEmployee.setSurname1(employee.getSurname1());
@@ -136,7 +138,7 @@ public class EmployeeService {
                 }else{
                     throw new InvalidDataException("El empleado debe tener entre 18 y 67 años");
                 }
-           try {
+
                return employeeRepository.save(existingEmployee);
            } catch (Exception e) {
                throw new SaveException("Error al actualizar al empleado: " + e.getMessage());
