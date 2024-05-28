@@ -33,7 +33,7 @@
                             hide-details></v-text-field>
                         <v-data-table :headers="headers" :items="employees" :search="search" class="elevation-1 dense-table"
                             :items-per-page="5">
-                            <template v-slot:item.actions="{ item }">
+                            <template v-slot:item.assigned="{ item }">
                                 <v-simple-checkbox v-model="item.assigned"></v-simple-checkbox>
                             </template>
                         </v-data-table>
@@ -64,7 +64,7 @@ export default {
                 { text: 'ID', value: 'idEmployee' },
                 { text: 'Nombre', value: 'name' },
                 { text: 'Apellidos', value: 'fullName' },
-                { text: 'Asignado', value: 'actions' }
+                { text: 'Asignado', value: 'assigned' }
             ],
         };
     },

@@ -41,22 +41,22 @@
                               <!-- NIF -->
                               <v-col cols="12" sm="6" md="4">
                                 <v-text-field v-model="editedItem.nif" label="NIF"
-                                  :rules="[rules.required, rules.nif]"></v-text-field>
+                                  :rules="[rules.required, rules.nif]" required></v-text-field>
                               </v-col>
                               <!-- Nombre -->
                               <v-col cols="12" sm="6" md="4">
                                 <v-text-field v-model="editedItem.name" label="Nombre"
-                                  :rules="[rules.required]"></v-text-field>
+                                  :rules="[rules.required]" required></v-text-field>
                               </v-col>
                               <!-- Primer apellido -->
                               <v-col cols="12" sm="6" md="4">
                                 <v-text-field v-model="editedItem.surname1" label="Primer apellido"
-                                  :rules="[rules.required]"></v-text-field>
+                                  :rules="[rules.required]" required></v-text-field>
                               </v-col>
                               <!-- Segundo apellido -->
                               <v-col cols="12" sm="6" md="4">
                                 <v-text-field v-model="editedItem.surname2" label="Segundo apellido"
-                                  :rules="[rules.required]"></v-text-field>
+                                  :rules="[rules.required]" required></v-text-field>
                               </v-col>
                               <!-- Fecha Nacimiento -->
                               <v-col cols="12" sm="6" md="4">
@@ -65,7 +65,7 @@
                                   <template v-slot:activator="{ on, attrs }">
                                     <v-text-field v-model="editedItem.birthdate" label="Fecha Nacimiento"
                                       prepend-icon="mdi-calendar" readonly v-bind="attrs" v-on="on"
-                                      :rules="[rules.required, rules.validAge]"></v-text-field>
+                                      :rules="[rules.validAge]" required></v-text-field>
                                   </template>
                                   <v-date-picker v-model="editedItem.birthdate" no-title scrollable first-day-of-week="1"
                                     locale="es" @input="menuFN = false"></v-date-picker>
@@ -74,17 +74,17 @@
                               <!-- Telefono 1 -->
                               <v-col cols="12" sm="6" md="4">
                                 <v-text-field v-model="editedItem.phone1" label="Telefono Principal"
-                                  :rules="[rules.required, rules.phone]"></v-text-field>
+                                  :rules="[rules.required, rules.phone]" required></v-text-field>
                               </v-col>
                               <!-- Telefono 2 -->
                               <v-col cols="12" sm="6" md="4">
                                 <v-text-field v-model="editedItem.phone2" label="Telefono Secundario"
-                                  :rules="[rules.required, rules.phone]"></v-text-field>
+                                  :rules="[rules.required, rules.phone]" required></v-text-field>
                               </v-col>
                               <!-- Email -->
                               <v-col cols="12" sm="6" md="4">
                                 <v-text-field v-model="editedItem.email" label="Email"
-                                  :rules="[rules.required, rules.email]"></v-text-field>
+                                  :rules="[rules.required, rules.email]" required></v-text-field>
                               </v-col>
                               <!-- Fecha alta empleado -->
                               <v-col cols="12" sm="6" md="4">
@@ -93,7 +93,7 @@
                                   <template v-slot:activator="{ on, attrs }">
                                     <v-text-field v-model="editedItem.hireDate" label="Fecha Alta"
                                       prepend-icon="mdi-calendar" readonly v-bind="attrs" v-on="on"
-                                      :rules="[rules.required]"></v-text-field>
+                                      :rules="[rules.required]" required></v-text-field>
                                   </template>
                                   <v-date-picker v-model="editedItem.hireDate" no-title scrollable first-day-of-week="1"
                                     locale="es" @input="menuFA = false"></v-date-picker>
@@ -102,13 +102,13 @@
                               <!-- Estado civil -->
                               <v-col cols="12" sm="6" md="4">
                                 <v-select v-model="editedItem.maritalStatus" :items="maritalStatusOptions"
-                                  :rules="[rules.required]" label="Estado Civil" item-text="text"
+                                  :rules="[rules.required]" required label="Estado Civil" item-text="text"
                                   item-value="value"></v-select>
                               </v-col>
                               <!-- Servicio Militar -->
                               <v-col cols="12" sm="6" md="4">
                                 <v-select v-model="editedItem.militaryService" :items="militaryServiceOptions"
-                                  :rules="[rules.required]" label="Servicio Militar" item-text="text"
+                                  :rules="[rules.required]"  required label="Servicio Militar" item-text="text"
                                   item-value="value"></v-select>
                               </v-col>
                             </v-row>
